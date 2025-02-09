@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace QM.Scheduling.Api.Controllers;
@@ -6,7 +7,9 @@ namespace QM.Scheduling.Api.Controllers;
 [Route("[controller]")]
 public class ScheduleListController : ControllerBase
 {
+    // This action requires the ScheduleReadPolicy
     [HttpGet]
+    [Authorize(Policy = "ScheduleReadPolicy")]
     public ActionResult<IEnumerable<Schedule>> Get()
     {
         var schedules = new List<Schedule>
@@ -18,4 +21,5 @@ public class ScheduleListController : ControllerBase
 
         return Ok(schedules);
     }
+
 }

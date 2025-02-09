@@ -1,50 +1,70 @@
-# React + TypeScript + Vite
+# **QM.Scheduling ClientApp**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **React** application for **QM.Scheduling**, built using **Vite**, **TypeScript**, **SCSS**, and **i18n** for translations. The React app is integrated with a **.NET 8 API** and is served from **wwwroot** inside the API project.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## **Project Overview**
 
-## Expanding the ESLint configuration
+- **React App** built with **Vite**, **TypeScript**, and **SCSS**.
+- **i18n translations** for multi-language support.
+- Integrated with a **.NET 8 API** for backend services.
+- **JWT authentication** for secure API requests.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## **Features**
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### **React and Vite**
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- **Fast Development**: Utilizes Vite for fast development and hot module replacement (HMR).
+- **TypeScript**: Strongly typed code with TypeScript for better maintainability and fewer runtime errors.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### **Styling**
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+- **SCSS**: Uses SCSS for styling, allowing nested rules, variables, and mixins for more organized and reusable styles.
+
+### **Internationalization (i18n)**
+
+- **Multi-language Support**: Uses `react-i18next` and `i18next` for internationalization, supporting multiple languages.
+- **Dynamic Language Switching**: Allows users to switch languages dynamically.
+
+### **API Integration**
+
+- **Axios**: Configured Axios for making API requests to the .NET backend.
+- **Retry Logic**: Implements retry logic for API requests using `axios-retry`.
+- **JWT Authentication**: Includes JWT token in API requests for secure communication.
+
+### **State Management**
+
+- **React Hooks**: Utilizes React hooks (`useState`, `useEffect`) for managing state and side effects.
+
+### **Component Structure**
+
+- **Modular Components**: Organized into reusable and modular components for better code management.
+- **Schedule List**: Displays a list of exam schedules fetched from the backend API.
+
+### **Build and Deployment**
+
+- **Vite Build**: Configured to build the React app and output to the `.NET wwwroot` folder for seamless integration.
+- **Bootstrapper**: Uses a bootstrapper script to dynamically load the React app using the Vite manifest.
+
+---
+
+## **Getting Started**
+
+1. **Install Dependencies**: Run `npm install` to install all necessary packages.
+2. **Build the App**: Run `npm run build` to build the React app.
+3. **Run the .NET API**: Ensure the .NET API project is running to serve the React app from `wwwroot`.
+
+---
+
+## **Conclusion**
+
+This setup integrates the **QM.Scheduling** React application into the .NET 8 API. It displays an online exam schedule list, supports JWT authentication, and includes multi-language support with translations.
+
+---
+
+## **Enjoy building your Scheduling Application!** 🗓️✨
+
+---
