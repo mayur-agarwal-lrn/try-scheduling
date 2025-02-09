@@ -1,0 +1,6 @@
+{
+  "loading": "Loading schedule (fr)...",
+  "error": "Failed to fetch schedule data (fr).",
+  "noData": "No schedule available (fr).",
+  "scheduleListHeading": "Schedule List (fr)"
+}

@@ -1,0 +1,6 @@
+{
+  "loading": "Loading schedule...",
+  "error": "Failed to fetch schedule data.",
+  "noData": "No schedule available.",
+  "scheduleListHeading": "Schedule List"
+}

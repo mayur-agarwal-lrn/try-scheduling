@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup>
+		<TargetFramework>net8.0</TargetFramework>
+		<Nullable>disable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+
+		<!-- Path to the React project -->
+		<ClientAppPath>$(ProjectDir)..\ClientApp</ClientAppPath>
+	</PropertyGroup>
+
+	<!-- Build React app before .NET build/publish -->
+	<Target Name="BuildClient" BeforeTargets="Build;Publish">
+		<Exec WorkingDirectory="$(ClientAppPath)" Command="npm install" />
+		<Exec WorkingDirectory="$(ClientAppPath)" Command="npm run build" />
+	</Target>
+
+</Project>
