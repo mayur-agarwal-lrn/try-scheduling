@@ -1,9 +1,11 @@
 import axios from "axios";
 import axiosRetry from "axios-retry";
 
-const baseURL =
-  sessionStorage.getItem("qmSchedulingBaseUrl") ||
-  "https://default-api-url.com";
+const baseURL = sessionStorage.getItem("qmSchedulingBaseUrl");
+
+if (!baseURL) {
+  throw new Error("Base URL not found in session storage");
+}
 
 const apiClient = axios.create({
   baseURL,

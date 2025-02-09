@@ -9,10 +9,13 @@
     <p>Portal</p>
     <div id="scheduling-root"></div>
     <script>
-      sessionStorage.setItem("qmSchedulingBaseUrl", "https://localhost:7108");
+      sessionStorage.setItem(
+        "qmSchedulingBaseUrl",
+        "https://localhost:7108/scheduling/myTenant123/api/"
+      );
     </script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <script src="./jwtGenerator.js"></script>
+    <script src="./jwtGenerator.js?v=1"></script>
     <script src="./bootstrapper.js?v=1"></script>
   </body>
 </html>

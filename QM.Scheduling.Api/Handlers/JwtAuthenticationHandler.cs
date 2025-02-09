@@ -52,6 +52,19 @@ public class JwtAuthenticationHandler(
 
             var claims = jwtToken.Claims.ToList();
 
+            // Validate tenantId in URL and token
+            var tenantIdFromToken = claims.FirstOrDefault(c => c.Type == "tenantId")?.Value;
+            var tenantIdFromUrl = Request.RouteValues["tenantId"]?.ToString();
+
+            if (string.IsNullOrEmpty(tenantIdFromToken) || string.IsNullOrEmpty(tenantIdFromUrl) ||
+                !tenantIdFromToken.Equals(tenantIdFromUrl, StringComparison.OrdinalIgnoreCase))
+            {
+                return Task.FromResult(AuthenticateResult.Fail("Invalid tenantId"));
+            }
+
+            // Add tenantId to claims
+            claims.Add(new Claim("tenantId", tenantIdFromToken));
+
             // Handle flattened permissions claims
             var permissions = claims.Where(c => c.Type == "permissions").Select(c => c.Value).ToList();
             claims.AddRange(permissions.Select(p => new Claim("permission", p)));

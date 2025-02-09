@@ -39,6 +39,7 @@ const payload = {
   name: "John Doe", // User Name
   iat: Math.floor(Date.now() / 1000), // Issued At
   exp: Math.floor(Date.now() / 1000) + 3600, // Expires in 1 hour
+  tenantId: "myTenant123", // tenantId in the payload
   permissions: [
     "schedule:create",
     "schedule:read",
