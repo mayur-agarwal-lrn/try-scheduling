@@ -2,7 +2,7 @@ import "./App.scss";
 import React from "react";
 import { useTranslation } from "react-i18next";
 
-import ScheduleList from "./pages/ScheduleList";
+import ScheduleList from "./pages/ScheduleListContainer";
 import LanguageSelector from "./components/LanguageSelector";
 
 const App: React.FC = () => {
