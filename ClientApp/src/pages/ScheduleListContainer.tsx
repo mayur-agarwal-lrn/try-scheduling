@@ -29,7 +29,7 @@ import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
 
 const ScheduleListContainer: React.FC = () => {
-  const { t } = useTranslation("scheduleList");
+  const { t, i18n } = useTranslation("scheduleList");
   const queryClient = useQueryClient();
 
   // State for processing status on the row during an action (delete, toggle active, create)
@@ -145,9 +145,9 @@ const ScheduleListContainer: React.FC = () => {
 
   return (
     <ScheduleListPresenter
+      schedules={scheduleList}
       scheduleLoading={isScheduleLoading}
       schedulesGetError={schedulesGetError}
-      schedules={scheduleList}
       onDelete={handleScheduleDelete}
       onToggleActive={handleScheduleToggleActive}
       newSchedule={newSchedule}
@@ -156,6 +156,7 @@ const ScheduleListContainer: React.FC = () => {
       processingId={processingId}
       actionError={actionError}
       tokenExpirationSeconds={tokenExpirationSeconds}
+      currentLanguage={i18n.language}
     />
   );
 };

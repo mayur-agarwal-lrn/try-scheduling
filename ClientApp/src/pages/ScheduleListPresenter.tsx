@@ -34,20 +34,22 @@ interface ScheduleListPresenterProps {
   actionError: AxiosError | null;
   processingId: number | null;
   tokenExpirationSeconds: number;
+  currentLanguage: string;
 }
 
 const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
+  schedules,
   scheduleLoading,
   schedulesGetError,
-  schedules,
   onDelete,
   onToggleActive,
   newSchedule,
   onInputChange,
   onCreate,
-  actionError,
   processingId,
+  actionError,
   tokenExpirationSeconds,
+  currentLanguage,
 }) => {
   const { t } = useTranslation("scheduleList");
 
@@ -116,7 +118,9 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
               className={schedule.id % 2 === 0 ? "even-row" : "odd-row"}
             >
               <td data-label={t("examName")}>{schedule.examName}</td>
-              <td data-label={t("date")}>{formatDateTime(schedule.date)}</td>
+              <td data-label={t("date")}>
+                {formatDateTime(schedule.date, currentLanguage)}
+              </td>
               <td data-label={t("location")}>{schedule.location}</td>
               <td data-label={t("actions")}>
                 <button

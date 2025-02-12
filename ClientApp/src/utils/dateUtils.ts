@@ -13,8 +13,8 @@ export const addTimezoneToDate = (dateString: string): string => {
   );
 };
 
-// Helper function to format date and time
-export const formatDateTime = (dateTime: string): string => {
+// Helper function to format date and time in the specified language
+export const formatDateTime = (dateTime: string, language: string): string => {
   const date = new Date(dateTime);
-  return date.toLocaleString();
+  return date.toLocaleString(language);
 };
