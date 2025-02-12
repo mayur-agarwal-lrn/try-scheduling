@@ -3,4 +3,5 @@ export interface Schedule {
   examName: string;
   date: string;
   location: string;
+  active: boolean;
 }

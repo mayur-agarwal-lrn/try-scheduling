@@ -1,4 +1,7 @@
 {
   "title": "Online Exam Schedule",
-  "selectLanguage": "Select Language"
+  "selectLanguage": "Select Language",
+  "tokenExpireWarning": "Your session will expire in",
+  "seconds": "seconds",
+  "tokenExpired": "Token Expired"
 }

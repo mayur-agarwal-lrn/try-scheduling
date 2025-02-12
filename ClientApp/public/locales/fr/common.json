@@ -1,4 +1,7 @@
 {
-  "title": "Online Exam Schedule (fr)",
-  "selectLanguage": "Select Language (fr)"
+  "title": "Horaire des examens en ligne",
+  "selectLanguage": "Choisir la langue",
+  "tokenExpireWarning": "Votre session expirera dans",
+  "seconds": "secondes",
+  "tokenExpired": "Session expirée"
 }

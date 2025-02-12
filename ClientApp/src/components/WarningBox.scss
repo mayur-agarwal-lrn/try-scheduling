@@ -1,0 +1,12 @@
+.warning-box {
+  border: 1px solid orange;
+  color: orange;
+  padding: 10px;
+  margin-block-end: 10px;
+  margin-inline: 0;
+}
+
+.warning-box.expired {
+  border-color: red;
+  color: red;
+}

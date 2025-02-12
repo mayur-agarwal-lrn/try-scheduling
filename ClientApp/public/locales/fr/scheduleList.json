@@ -1,6 +1,17 @@
 {
-  "loading": "Loading schedule (fr)...",
-  "error": "Failed to fetch schedule data (fr).",
-  "noData": "No schedule available (fr).",
-  "scheduleListHeading": "Schedule List (fr)"
+  "loading": "Chargement de l'horaire...",
+  "error": "Échec de la récupération des données de l'horaire.",
+  "noData": "Aucun horaire disponible.",
+  "scheduleListHeading": "Liste des horaires",
+  "examName": "Nom de l'examen",
+  "date": "Date",
+  "location": "Lieu",
+  "actions": "Actions",
+  "delete": "Supprimer",
+  "confirmDelete": "Êtes-vous sûr de vouloir supprimer cet horaire ?",
+  "disable": "Désactiver",
+  "enable": "Activer",
+  "add": "Ajouter",
+  "allFieldsRequired": "Tous les champs sont obligatoires.",
+  "processing": "Processing..."
 }

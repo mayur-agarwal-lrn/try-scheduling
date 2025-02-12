@@ -7,6 +7,7 @@ function generateJwtToken(payload, secret) {
     kid: "your-key-id", // Add Key ID
   };
 
+  // Function to encode data in base64url format
   function base64url(source) {
     return btoa(JSON.stringify(source))
       .replace(/=+$/, "")
@@ -20,6 +21,7 @@ function generateJwtToken(payload, secret) {
   const encodedPayload = base64url(payload);
   console.log("Encoded Payload:", encodedPayload);
 
+  // Generate the signature using the secret
   const signature = CryptoJS.HmacSHA256(
     encodedHeader + "." + encodedPayload,
     secret
@@ -31,25 +33,29 @@ function generateJwtToken(payload, secret) {
 
   console.log("Signature:", signature);
 
+  // Return the complete JWT token
   return `${encodedHeader}.${encodedPayload}.${signature}`;
 }
 
+// Example payload
 const payload = {
   sub: "12345", // User ID
   name: "John Doe", // User Name
   iat: Math.floor(Date.now() / 1000), // Issued At
-  exp: Math.floor(Date.now() / 1000) + 3600, // Expires in 1 hour
+  exp: Math.floor(Date.now() / 1000) + 60, // Expires in 1 minute
   tenantId: "myTenant123", // tenantId in the payload
   permissions: [
-    "schedule:create",
     "schedule:read",
+    "schedule:create",
     "schedule:update",
     "schedule:delete",
-  ], // Flatten permissions
+  ],
 };
 
+// Secret key for signing the token
 const secret = "your-256-bit-secret";
 const token = generateJwtToken(payload, secret);
 console.log("Generated JWT Token:", token);
 
+// Store the token in session storage
 sessionStorage.setItem("qmSchedulingJwtToken", token);

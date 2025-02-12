@@ -3,6 +3,9 @@ import { initReactI18next } from "react-i18next";
 import HttpBackend from "i18next-http-backend";
 import LanguageDetector from "i18next-browser-languagedetector";
 
+const version = import.meta.env.VITE_APP_VERSION || "1.0.0";
+console.log("App Version:", version);
+
 i18n
   .use(HttpBackend)
   .use(LanguageDetector)
@@ -15,7 +18,7 @@ i18n
       escapeValue: false, // React already escapes values
     },
     backend: {
-      loadPath: "/locales/{{lng}}/{{ns}}.json", // Path to translation files
+      loadPath: `/locales/{{lng}}/{{ns}}.json?v=${version}`, // Path to translation files with cache busting
     },
   });
 

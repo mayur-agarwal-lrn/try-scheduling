@@ -2,5 +2,16 @@
   "loading": "Loading schedule...",
   "error": "Failed to fetch schedule data.",
   "noData": "No schedule available.",
-  "scheduleListHeading": "Schedule List"
+  "scheduleListHeading": "Schedule List",
+  "examName": "Exam Name",
+  "date": "Date",
+  "location": "Location",
+  "actions": "Actions",
+  "delete": "Delete",
+  "confirmDelete": "Are you sure you want to delete this schedule?",
+  "disable": "Disable",
+  "enable": "Enable",
+  "add": "Add",
+  "allFieldsRequired": "All fields are required.",
+  "processing": "Processing..."
 }

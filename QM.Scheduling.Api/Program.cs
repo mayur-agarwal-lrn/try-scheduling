@@ -30,8 +30,16 @@ public class Program
         {
             options.AddPolicy("ScheduleReadPolicy", policy =>
                 policy.RequireClaim("permission", "schedule:read"));
+
+            // Customer policy when multiple permissions are required
             options.AddPolicy("ScheduleAllPolicy", policy =>
-                policy.RequireClaim("permission", "schedule:create", "schedule:read", "schedule:update", "schedule:delete"));
+                policy.RequireAssertion(context =>
+                    // Custom policy to check multiple permissions
+                    context.User.HasClaim(c => c is { Type: "permission", Value: "schedule:create" }) &&
+                    context.User.HasClaim(c => c is { Type: "permission", Value: "schedule:read" }) &&
+                    context.User.HasClaim(c => c is { Type: "permission", Value: "schedule:update" }) &&
+                    context.User.HasClaim(c => c is { Type: "permission", Value: "schedule:delete" })
+                ));
         });
 
         // Enforce HTTPS
