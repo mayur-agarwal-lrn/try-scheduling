@@ -18,9 +18,11 @@ import { useTranslation } from "react-i18next";
 import { Schedule } from "../types";
 import { AxiosError } from "axios";
 import "./ScheduleListPresenter.scss";
-import ErrorBox from "../components/ErrorBox";
-import WarningBox from "../components/WarningBox";
+import ErrorAlert from "../components/ErrorAlert";
+import WarningAlert from "../components/WarningAlert";
 import { formatDateTime } from "../utils/dateUtils";
+
+import { Button as LDSButton, Spinner as LDSSpinner } from "@learnosity/lds";
 
 interface ScheduleListPresenterProps {
   scheduleLoading: boolean;
@@ -54,13 +56,13 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
   const { t } = useTranslation("scheduleList");
 
   if (scheduleLoading) return <p>{t("loading")}</p>;
-  if (schedulesGetError) return <ErrorBox error={schedulesGetError} />;
+  if (schedulesGetError) return <ErrorAlert error={schedulesGetError} />;
   if (!schedules || schedules.length === 0) return <p>{t("noData")}</p>;
 
   return (
     <div>
-      <ErrorBox error={actionError} />
-      <WarningBox initialSeconds={tokenExpirationSeconds} />
+      <ErrorAlert error={actionError} />
+      <WarningAlert initialSeconds={tokenExpirationSeconds} />
       <h1>{t("scheduleListHeading")}</h1>
       <table className="schedule-table">
         <thead>
@@ -100,15 +102,27 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
               />
             </td>
             <td data-label={t("actions")}>
-              <button
-                onClick={onCreate}
-                className="add-button"
-                disabled={processingId === -1}
-              >
-                {t("add")}
-              </button>
+              <span className="lds-me-3">
+                <LDSButton
+                  type="button"
+                  onClick={onCreate}
+                  variant="primary"
+                  size="sm"
+                  tabIndex={0}
+                  disabled={processingId === -1}
+                >
+                  {t("add")}
+                </LDSButton>
+              </span>
               {processingId === -1 && (
-                <span className="processing-text">{t("processing")}</span>
+                <LDSSpinner
+                  animation="border"
+                  role="status"
+                  variant="info"
+                  size="sm"
+                >
+                  <span className="visually-hidden">t("processing")</span>
+                </LDSSpinner>
               )}
             </td>
           </tr>
@@ -123,24 +137,41 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
               </td>
               <td data-label={t("location")}>{schedule.location}</td>
               <td data-label={t("actions")}>
-                <button
-                  onClick={() => onDelete(schedule.id)}
-                  className="delete-button"
-                  disabled={processingId === schedule.id}
-                >
-                  {t("delete")}
-                </button>
-                <button
-                  onClick={() => onToggleActive(schedule.id, !schedule.active)}
-                  className={
-                    schedule.active ? "disable-button" : "enable-button"
-                  }
-                  disabled={processingId === schedule.id}
-                >
-                  {schedule.active ? t("disable") : t("enable")}
-                </button>
+                <span className="lds-me-3">
+                  <LDSButton
+                    type="button"
+                    onClick={() =>
+                      onToggleActive(schedule.id, !schedule.active)
+                    }
+                    variant={schedule.active ? "outline-danger" : "success"}
+                    size="sm"
+                    tabIndex={1}
+                    disabled={processingId === schedule.id}
+                  >
+                    {schedule.active ? t("disable") : t("enable")}
+                  </LDSButton>
+                </span>
+                <span className="lds-me-3">
+                  <LDSButton
+                    type="button"
+                    onClick={() => onDelete(schedule.id)}
+                    variant="danger"
+                    size="sm"
+                    tabIndex={2}
+                    disabled={processingId === schedule.id}
+                  >
+                    {t("delete")}
+                  </LDSButton>
+                </span>
                 {processingId === schedule.id && (
-                  <span className="processing-text">{t("processing")}</span>
+                  <LDSSpinner
+                    animation="border"
+                    role="status"
+                    variant="info"
+                    size="sm"
+                  >
+                    <span className="visually-hidden">t("processing")</span>
+                  </LDSSpinner>
                 )}
               </td>
             </tr>

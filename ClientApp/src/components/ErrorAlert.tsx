@@ -1,22 +1,23 @@
 import React from "react";
 import { useTranslation } from "react-i18next";
 import { AxiosError } from "axios";
-import "./ErrorBox.scss";
 
-interface ErrorBoxProps {
+import { Alert as LDSAlert } from "@learnosity/lds";
+
+interface ErrorAlertProps {
   error: AxiosError | null;
 }
 
-const ErrorBox: React.FC<ErrorBoxProps> = ({ error }) => {
+const ErrorAlert: React.FC<ErrorAlertProps> = ({ error }) => {
   const { t } = useTranslation("scheduleList");
 
   if (!error) return null;
 
   return (
-    <div className="error-box">
+    <LDSAlert variant="danger" dismissible>
       {t(error.message) + " " + (error.status && `(${error.status})`)}
-    </div>
+    </LDSAlert>
   );
 };
 
-export default ErrorBox;
+export default ErrorAlert;

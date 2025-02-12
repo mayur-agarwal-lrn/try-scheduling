@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import "./WarningBox.scss";
+import { Alert as LDSAlert } from "@learnosity/lds";
 
-interface WarningBoxProps {
+interface WarningAlertProps {
   initialSeconds: number;
 }
 
-const WarningBox: React.FC<WarningBoxProps> = ({ initialSeconds }) => {
+const WarningAlert: React.FC<WarningAlertProps> = ({ initialSeconds }) => {
   const { t } = useTranslation();
   const [seconds, setSeconds] = useState(initialSeconds);
   const [expired, setExpired] = useState(false);
@@ -22,13 +22,19 @@ const WarningBox: React.FC<WarningBoxProps> = ({ initialSeconds }) => {
     }
   }, [seconds]);
 
+  if (expired) {
+    return (
+      <LDSAlert variant="danger" dismissible>
+        {t("tokenExpired")}
+      </LDSAlert>
+    );
+  }
+
   return (
-    <div className={`warning-box ${expired ? "expired" : ""}`}>
-      {expired
-        ? t("tokenExpired")
-        : `${t("tokenExpireWarning")} ${seconds} ${t("seconds")}`}
-    </div>
+    <LDSAlert variant="warning" dismissible>
+      {`${t("tokenExpireWarning")} ${seconds} ${t("seconds")}`}
+    </LDSAlert>
   );
 };
 
-export default WarningBox;
+export default WarningAlert;
