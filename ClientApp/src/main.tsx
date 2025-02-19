@@ -8,7 +8,9 @@ import App from "./App";
 import { loadCSS, ThemeProvider } from "@learnosity/lds";
 loadCSS();
 
-// Get the root element to render the React app
+// This file is the entry point for the React application. It initializes the app by rendering the root component into the DOM.
+// It also sets up the QueryClientProvider for React Query and the ThemeProvider for the LDS component library.
+
 const rootElement = document.getElementById("scheduling-root");
 
 if (rootElement) {

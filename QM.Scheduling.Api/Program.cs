@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using QM.Scheduling.Api.Handlers;
+using QM.Scheduling.Api.Infrastructure;
 
 namespace QM.Scheduling.Api;
 
@@ -42,6 +44,14 @@ public class Program
                 ));
         });
 
+        // Configure in-memory database for schedules
+        builder.Services.AddDbContext<ScheduleDbContext>(options =>
+            options.UseInMemoryDatabase("SchedulesDb"));
+
+        // Configure in-memory database for schedulers
+        builder.Services.AddDbContext<SchedulerDbContext>(options =>
+            options.UseInMemoryDatabase("SchedulersDb"));
+
         // Enforce HTTPS
         builder.Services.AddHttpsRedirection(options =>
         {
@@ -57,7 +67,17 @@ public class Program
             options.MaxAge = TimeSpan.FromDays(365);
         });
 
+        // Register DatabaseInitializer as a fake service (not needed in production code)
+        builder.Services.AddTransient<DatabaseInitializer>();
+
         var app = builder.Build();
+
+        // Seed the databases with initial data (fake setup for demo purposes)
+        using (var scope = app.Services.CreateScope())
+        {
+            var dbInitializer = scope.ServiceProvider.GetRequiredService<DatabaseInitializer>();
+            dbInitializer.SeedDatabases();
+        }
 
         // Configure the HTTP request pipeline.
         app.UseStaticFiles(); // Serve static files from wwwroot

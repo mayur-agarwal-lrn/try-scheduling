@@ -3,5 +3,5 @@
   "selectLanguage": "Choisir la langue",
   "tokenExpireWarning": "Votre session expirera dans",
   "seconds": "secondes",
-  "tokenExpired": "Session expirée"
+  "tokenExpired": "Le jeton a expiré. Veuillez effectuer une opération CRUD pour renouveler le jeton."
 }

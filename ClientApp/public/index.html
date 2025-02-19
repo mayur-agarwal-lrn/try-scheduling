@@ -11,11 +11,14 @@
     <script>
       sessionStorage.setItem(
         "qmBaseUrl",
-        "https://localhost:7108/home/myTenant123/"
+        "https://localhost:7108/home/myTenant123"
       );
+
+      // Use the following to simulate a logged in user
+      // "VeryLongRefreshToken-123" is the refresh token for the user who has read and write access
+      // "VeryLongRefreshToken-456" is the refresh token for the user who has only read access
+      sessionStorage.setItem("userRefreshToken", "VeryLongRefreshToken-123");
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
-    <script src="./jwtGenerator.js?v=1"></script>
     <script src="./bootstrapper.js?v=1"></script>
   </body>
 </html>

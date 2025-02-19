@@ -1,3 +1,6 @@
+// This script is responsible for loading the Vite manifest and dynamically injecting the main JavaScript and CSS files into the HTML document.
+// Additionally, we can make an API call here to get the initial JWT token and store in session storage if needed.
+
 fetch("/.vite/manifest.json")
   .then((response) => response.json())
   .then((manifest) => {

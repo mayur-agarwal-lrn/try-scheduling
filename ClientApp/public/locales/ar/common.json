@@ -3,5 +3,5 @@
   "selectLanguage": "اختر اللغة",
   "tokenExpireWarning": "ستنتهي جلستك في",
   "seconds": "ثواني",
-  "tokenExpired": "انتهت الجلسة"
+  "tokenExpired": "انتهت صلاحية الرمز. يرجى إجراء عملية CRUD لتجديد الرمز."
 }

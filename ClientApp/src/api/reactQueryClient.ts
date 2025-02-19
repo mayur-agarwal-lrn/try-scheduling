@@ -1,7 +1,9 @@
 import { QueryClient } from "@tanstack/react-query";
 import axios from "axios";
 
-// Create a query client with default options
+// This file configures the React Query client with default options for handling queries and mutations.
+// It includes retry logic for failed requests and custom retry delays.
+
 export const queryClient = new QueryClient({
   defaultOptions: {
     queries: {

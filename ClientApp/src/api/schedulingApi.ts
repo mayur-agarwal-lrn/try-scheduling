@@ -1,3 +1,6 @@
+// This file contains API functions for interacting with the scheduling backend using axios apiClient.
+// It includes functions to fetch, create, update, and delete schedules.
+
 import { Schedule } from "../types";
 import apiClient from "./axiosConfig";
 import { addTimezoneToDate } from "../utils/dateUtils";

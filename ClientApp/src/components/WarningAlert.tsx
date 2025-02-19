@@ -9,7 +9,7 @@ interface WarningAlertProps {
 const WarningAlert: React.FC<WarningAlertProps> = ({ initialSeconds }) => {
   const { t } = useTranslation();
   const [seconds, setSeconds] = useState(initialSeconds);
-  const [expired, setExpired] = useState(false);
+  const [showAlert, setShowAlert] = useState(true);
 
   useEffect(() => {
     if (seconds > 0) {
@@ -18,21 +18,27 @@ const WarningAlert: React.FC<WarningAlertProps> = ({ initialSeconds }) => {
       }, 1000);
       return () => clearInterval(timer);
     } else {
-      setExpired(true);
+      setShowAlert(true);
+      const closeTimer = setTimeout(() => {
+        setShowAlert(false);
+      }, 3000); // Automatically close after 3 seconds
+      return () => clearTimeout(closeTimer);
     }
-  }, [seconds]);
+  }, [initialSeconds, seconds]);
 
-  if (expired) {
-    return (
-      <LDSAlert variant="danger" dismissible>
-        {t("tokenExpired")}
-      </LDSAlert>
-    );
+  if (!showAlert) {
+    return null;
   }
 
   return (
-    <LDSAlert variant="warning" dismissible>
-      {`${t("tokenExpireWarning")} ${seconds} ${t("seconds")}`}
+    <LDSAlert
+      variant={seconds > 0 ? "warning" : "danger"}
+      dismissible
+      onClose={() => setShowAlert(false)}
+    >
+      {seconds > 0
+        ? `${t("tokenExpireWarning")} ${seconds} ${t("seconds")}`
+        : t("tokenExpired")}
     </LDSAlert>
   );
 };

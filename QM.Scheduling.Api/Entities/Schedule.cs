@@ -1,4 +1,4 @@
-namespace QM.Scheduling.Api.Models;
+namespace QM.Scheduling.Api.Entities;
 
 public class Schedule
 {
