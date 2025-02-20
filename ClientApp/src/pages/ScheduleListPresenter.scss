@@ -1,11 +1,16 @@
+@use "@learnosity/lds-design-tokens/dist/scss/index" as lds;
+
+// Define custom tokens if not available in index.scss
+$custom-padding-inline-start: 60%;
+
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
 
   th,
   td {
-    border: 1px solid #ddd;
-    padding: 8px;
+    border: 1px solid lds.$lds-color--grey-L500;
+    padding: lds.$lds-space--1-x;
   }
 
   thead {
@@ -14,13 +19,13 @@
 
   tr {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: lds.$lds-space--2-x;
   }
 
   td {
     display: block;
     text-align: start;
-    padding-inline-start: 60%;
+    padding-inline-start: $custom-padding-inline-start; // Custom token
     position: relative;
     word-wrap: break-word;
     max-width: 100%;
@@ -31,8 +36,8 @@
     position: absolute;
     inset-inline-start: 0;
     width: 50%;
-    margin-inline: 15px;
-    font-weight: bold;
+    margin-inline: lds.$lds-space--1-x;
+    font-weight: lds.$lds-font-weight--bold;
     text-align: start;
     white-space: nowrap;
     overflow: hidden;
@@ -65,8 +70,8 @@
   .schedule-table th {
     display: table-cell;
     text-align: start;
-    padding: 8px;
-    border: 1px solid #ddd;
+    padding: lds.$lds-space--1-x;
+    border: 1px solid lds.$lds-color--grey-L500;
     position: static;
     word-wrap: normal;
   }
@@ -79,16 +84,24 @@
     width: auto;
     box-sizing: content-box;
   }
+
+  .lds-form-control {
+    width: auto !important; // Override LDS token value for desktop screens
+  }
 }
 
 .new-schedule-row {
-  background-color: #e0e0e0;
+  background-color: lds.$lds-color--grey-L400;
 }
 
 .even-row {
-  background-color: #f2f2f2;
+  background-color: lds.$lds-color--grey-L200;
 }
 
 .odd-row {
-  background-color: white;
+  background-color: lds.$lds-color--white;
+}
+
+.button-spacing {
+  margin: lds.$lds-space--1-x;
 }

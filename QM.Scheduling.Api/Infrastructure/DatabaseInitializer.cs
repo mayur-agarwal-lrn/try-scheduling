@@ -18,7 +18,10 @@ public class DatabaseInitializer(ScheduleDbContext scheduleContext, SchedulerDbC
         scheduleContext.Schedules.AddRange(
             new Schedule { ExamName = "Math Exam", Date = DateTime.Now.AddDays(1), Location = "Small Room 1", Active = true },
             new Schedule { ExamName = "Science Exam", Date = DateTime.Now.AddDays(2), Location = "Room 202" },
-            new Schedule { ExamName = "History Exam", Date = DateTime.Now.AddDays(3), Location = "Big Room 3", Active = true }
+            new Schedule { ExamName = "History Exam", Date = DateTime.Now.AddDays(3), Location = "Big Room 3", Active = true },
+            new Schedule { ExamName = "Physics Exam", Date = DateTime.Now.AddDays(4), Location = "Lab 1", Active = true },
+            new Schedule { ExamName = "Chemistry Exam", Date = DateTime.Now.AddDays(5), Location = "Lab 2" },
+            new Schedule { ExamName = "Biology Exam", Date = DateTime.Now.AddDays(6), Location = "Room 101", Active = true }
         );
         scheduleContext.SaveChanges();
     }

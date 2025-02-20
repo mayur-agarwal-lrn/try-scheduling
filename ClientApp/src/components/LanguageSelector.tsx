@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import "./LanguageSelector.scss";
+import { FormSelect, FormLabel as LDSFormLabel } from "@learnosity/lds";
 
 const LanguageSelector: React.FC = () => {
   const { t, i18n } = useTranslation();
@@ -18,19 +18,18 @@ const LanguageSelector: React.FC = () => {
 
   return (
     <div className="language-selector">
-      <label htmlFor="language" className="language-label">
-        {t("selectLanguage")}:
-      </label>
-      <select
-        id="language"
-        className="language-select"
+      <LDSFormLabel htmlFor="selectLanguage">
+        {t("selectLanguage")} :
+      </LDSFormLabel>
+      <FormSelect
+        id="selectLanguage"
         value={language}
         onChange={(e) => changeLanguage(e.target.value)}
       >
         <option value="en">English</option>
         <option value="fr">French</option>
         <option value="ar">Arabic</option>
-      </select>
+      </FormSelect>
     </div>
   );
 };

@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@learnosity/lds": "^0.28.5",
+    "@learnosity/lds-design-tokens": "^0.10.5",
+    "@learnosity/lds-qm-styles": "^0.13.0",
     "@tanstack/react-query": "^5.66.0",
     "axios": "^1.7.9",
     "i18next": "^24.2.2",

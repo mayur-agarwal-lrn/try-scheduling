@@ -1,16 +1,24 @@
+@use "@learnosity/lds-design-tokens/dist/scss/index" as lds;
+
 .App {
-  font-family: "Arial", sans-serif;
+  font-family: lds.$lds-font-stack--base;
 }
 
 main {
-  padding: 20px;
-  padding-inline: 20px;
+  padding: lds.$lds-space--2-x;
+  padding-inline: lds.$lds-space--2-x;
 }
 
 .App-header {
-  background-color: #282c34;
-  padding: 20px;
-  color: white;
-  font-size: 1.5rem;
-  padding-inline: 20px;
+  padding: lds.$lds-space--2-x;
+  background-color: lds.$lds-color--grey-L500;
+  color: lds.$lds-color--grey-D500;
+  font-size: lds.$lds-font-size--title-300;
+  padding-inline: lds.$lds-space--2-x;
+  border: 1px solid lds.$lds-color--grey-M500;
+}
+
+[data-lds-theme="dark"] .lds-form-control,
+[data-lds-theme="dark"] .lds-form-select {
+  color: #fff !important; // Fix LDS dark theme issue
 }
