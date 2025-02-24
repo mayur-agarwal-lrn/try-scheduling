@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@learnosity/lds": "^0.28.5",
+    "@learnosity/lds": "^0.28.6",
     "@learnosity/lds-design-tokens": "^0.10.5",
     "@learnosity/lds-qm-styles": "^0.13.0",
     "@tanstack/react-query": "^5.66.0",
@@ -18,6 +18,7 @@
     "i18next": "^24.2.2",
     "i18next-browser-languagedetector": "^8.0.2",
     "i18next-http-backend": "^3.0.2",
+    "jwt-decode": "^3.1.2",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-i18next": "^15.4.0",

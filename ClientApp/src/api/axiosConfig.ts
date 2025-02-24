@@ -1,7 +1,5 @@
-// This file configures an Axios instance for making API requests to the scheduling backend.
-// It includes interceptors for adding JWT tokens to requests and handling 401 Unauthorized responses by refreshing the token.
-
 import axios, { AxiosError } from "axios";
+import { getJwtTokenAsync, handleTokenRefreshAsync } from "../utils/tokenUtils";
 
 // Get the base URL from session storage or window.location
 const baseURL = sessionStorage.getItem("qmBaseUrl");
@@ -25,22 +23,24 @@ const apiClient = axios.create({
   },
 });
 
-let isRefreshing = false;
-
 // Request interceptor to add JWT token
 apiClient.interceptors.request.use(
-  (config) => {
-    const token = sessionStorage.getItem("qmSchedulingJwtToken");
+  async (config) => {
+    console.log(`[API Call] ${config.method}: ${config.url}`);
+    const token = await getJwtTokenAsync();
     if (token) {
-      console.log("Adding token to request headers:", token);
       config.headers.Authorization = `Bearer ${token}`;
     } else {
-      // We can get the token from the parent window if it is not available in the session storage
-      // TODO: Call handleTokenRefresh() to refresh the token
+      throw new Error(
+        "Token not found in session storage after refresh attempt"
+      );
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => {
+    console.error("Request error:", error);
+    return Promise.reject(error);
+  }
 );
 
 // Response interceptor for handling 401
@@ -50,41 +50,11 @@ apiClient.interceptors.response.use(
   async (error: AxiosError) => {
     if (error.response?.status === 401) {
       console.log("Received 401 response, attempting to refresh token...");
-
-      await handleTokenRefresh();
+      await handleTokenRefreshAsync();
     }
+    console.error("Response error:", error);
     return Promise.reject(error); // Let the request fail; React Query will retry it
   }
 );
-
-// Function to handle token refresh
-async function handleTokenRefresh(): Promise<void> {
-  if (!isRefreshing) {
-    isRefreshing = true;
-    try {
-      const newToken = await refreshToken();
-      console.log("Token refreshed successfully:", newToken);
-      sessionStorage.setItem("qmSchedulingJwtToken", newToken);
-    } catch (refreshError) {
-      console.error("Token refresh failed. Redirect to login...", refreshError);
-      sessionStorage.removeItem("qmSchedulingJwtToken");
-    } finally {
-      isRefreshing = false;
-    }
-  }
-}
-
-// Function to refresh the token by calling the parent token endpoint
-// Fake api to mock how to refresh a token,
-// In real scenario, we need to use Portal or Lobby or Authentication Microservice for getting a new token.
-async function refreshToken(): Promise<string> {
-  console.log("Calling refresh token endpoint...");
-  const refreshToken = sessionStorage.getItem("userRefreshToken");
-  const response = await axios.get(
-    `${schedulingBaseURL}/auth/token?refreshToken=${refreshToken}`
-  );
-  console.log("Refresh token response:", response.data);
-  return response.data.token;
-}
 
 export default apiClient;
