@@ -17,7 +17,7 @@ const LanguageSelector: React.FC = () => {
   }, [language, i18n]);
 
   return (
-    <div className="language-selector">
+    <div>
       <LDSFormLabel htmlFor="selectLanguage">
         {t("selectLanguage")} :
       </LDSFormLabel>

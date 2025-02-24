@@ -3,7 +3,7 @@
 // Define custom tokens if not available in index.scss
 $custom-padding-inline-start: 60%;
 
-.schedule-table {
+.scheduleTable {
   width: 100%;
   border-collapse: collapse;
 
@@ -51,23 +51,23 @@ $custom-padding-inline-start: 60%;
 }
 
 @media (min-width: 1024px) {
-  .schedule-table {
+  .scheduleTable {
     display: table;
     width: 100%;
     border-collapse: collapse;
   }
 
-  .schedule-table thead {
+  .scheduleTable thead {
     display: table-header-group;
   }
 
-  .schedule-table tr {
+  .scheduleTable tr {
     display: table-row;
     margin-bottom: 0;
   }
 
-  .schedule-table td,
-  .schedule-table th {
+  .scheduleTable td,
+  .scheduleTable th {
     display: table-cell;
     text-align: start;
     padding: lds.$lds-space--1-x;
@@ -76,32 +76,28 @@ $custom-padding-inline-start: 60%;
     word-wrap: normal;
   }
 
-  .schedule-table td::before {
+  .scheduleTable td::before {
     content: none;
   }
 
-  .schedule-table input {
+  .scheduleTable input {
     width: auto;
     box-sizing: content-box;
   }
-
-  .lds-form-control {
-    width: auto !important; // Override LDS token value for desktop screens
-  }
 }
 
-.new-schedule-row {
+.newScheduleRow {
   background-color: lds.$lds-color--grey-L400;
 }
 
-.even-row {
+.evenRow {
   background-color: lds.$lds-color--grey-L200;
 }
 
-.odd-row {
+.oddRow {
   background-color: lds.$lds-color--white;
 }
 
-.button-spacing {
+.buttonSpacing {
   margin: lds.$lds-space--1-x;
 }

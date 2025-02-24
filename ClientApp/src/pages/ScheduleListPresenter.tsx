@@ -17,7 +17,7 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 import { Schedule } from "../types";
 import { AxiosError } from "axios";
-import "./ScheduleListPresenter.scss";
+import styles from "./ScheduleListPresenter.module.scss";
 import ErrorAlert from "../components/ErrorAlert";
 import WarningAlert from "../components/WarningAlert";
 import { formatDateTime } from "../utils/dateUtils";
@@ -68,7 +68,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
       <ErrorAlert error={actionError} />
       <WarningAlert initialSeconds={tokenExpirationSeconds} />
       <h1>{t("scheduleListHeading")}</h1>
-      <table className="schedule-table">
+      <table className={styles.scheduleTable}>
         <thead>
           <tr>
             <th>{t("examName")}</th>
@@ -78,7 +78,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
           </tr>
         </thead>
         <tbody>
-          <tr className="new-schedule-row">
+          <tr className={styles.newScheduleRow}>
             <td data-label={t("examName")}>
               <LDSFormControl
                 type="text"
@@ -116,7 +116,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                 size="sm"
                 tabIndex={0}
                 disabled={processingId === -1}
-                className="button-spacing"
+                className={styles.buttonSpacing}
               >
                 {t("add")}
               </LDSButton>
@@ -127,7 +127,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                   variant="info"
                   size="sm"
                 >
-                  <span className="visually-hidden">t("processing")</span>
+                  t("processing")
                 </LDSSpinner>
               )}
             </td>
@@ -135,7 +135,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
           {schedules.map((schedule) => (
             <tr
               key={schedule.id}
-              className={schedule.id % 2 === 0 ? "even-row" : "odd-row"}
+              className={schedule.id % 2 === 0 ? styles.evenRow : styles.oddRow}
             >
               <td data-label={t("examName")}>{schedule.examName}</td>
               <td data-label={t("date")}>
@@ -150,7 +150,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                   size="sm"
                   tabIndex={1}
                   disabled={processingId === schedule.id}
-                  className="button-spacing"
+                  className={styles.buttonSpacing}
                 >
                   {schedule.active ? t("disable") : t("enable")}
                 </LDSButton>
@@ -161,7 +161,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                   size="sm"
                   tabIndex={2}
                   disabled={processingId === schedule.id}
-                  className="button-spacing"
+                  className={styles.buttonSpacing}
                 >
                   {t("delete")}
                 </LDSButton>
@@ -172,7 +172,7 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                     variant="info"
                     size="sm"
                   >
-                    <span className="visually-hidden">t("processing")</span>
+                    t("processing")
                   </LDSSpinner>
                 )}
               </td>

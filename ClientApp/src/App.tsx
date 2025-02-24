@@ -1,4 +1,4 @@
-import "./App.scss";
+import styles from "./App.module.scss";
 import "./i18n";
 import React from "react";
 import { useTranslation } from "react-i18next";
@@ -16,12 +16,12 @@ const App: React.FC = () => {
   return (
     <ThemeProvider initialTheme={Theme.dark}>
       <QueryClientProvider client={queryClient}>
-        <div className="App">
-          <header className="App-header">
+        <div className={styles.App}>
+          <header className={styles.AppHeader}>
             <h1>{t("title")}</h1>
             <LanguageSelector />
           </header>
-          <main>
+          <main className={styles.Main}>
             <ScheduleList />
           </main>
         </div>

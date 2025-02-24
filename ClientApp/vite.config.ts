@@ -7,6 +7,12 @@ const version = JSON.parse(readFileSync("./package.json", "utf-8")).version;
 
 export default defineConfig({
   plugins: [react()],
+  css: {
+    modules: {
+      localsConvention: "camelCase",
+      generateScopedName: "qm_scheduling_[local]",
+    },
+  },
   build: {
     outDir: "../QM.Scheduling.Api/wwwroot",
     emptyOutDir: true,
@@ -21,3 +27,6 @@ export default defineConfig({
     "import.meta.env.VITE_APP_VERSION": JSON.stringify(version), // Inject the version here
   },
 });
+
+// css modules - another option for generateScopedName
+// generateScopedName: 'scheduling__[name]__[local]___[hash:base64:5]',

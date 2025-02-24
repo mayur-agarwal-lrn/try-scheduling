@@ -17,8 +17,3 @@ main {
   padding-inline: lds.$lds-space--2-x;
   border: 1px solid lds.$lds-color--grey-M500;
 }
-
-[data-lds-theme="dark"] .lds-form-control,
-[data-lds-theme="dark"] .lds-form-select {
-  color: #fff !important; // Fix LDS dark theme issue
-}
