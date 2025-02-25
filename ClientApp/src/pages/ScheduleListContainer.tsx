@@ -125,12 +125,6 @@ const ScheduleListContainer: React.FC = () => {
     active: true,
   });
 
-  // Handle input changes in the new schedule form
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setNewSchedule((prev) => ({ ...prev, [name]: value }));
-  };
-
   // Handle the creation of a new schedule
   const handleScheduleCreate = () => {
     if (!newSchedule.examName || !newSchedule.date || !newSchedule.location) {
@@ -151,12 +145,12 @@ const ScheduleListContainer: React.FC = () => {
       onDelete={handleScheduleDelete}
       onToggleActive={handleScheduleToggleActive}
       newSchedule={newSchedule}
-      onInputChange={handleInputChange}
       onCreate={handleScheduleCreate}
       processingId={processingId}
       actionError={actionError}
       tokenExpirationSeconds={tokenExpirationSeconds}
       currentLanguage={i18n.language}
+      setNewSchedule={setNewSchedule}
     />
   );
 };

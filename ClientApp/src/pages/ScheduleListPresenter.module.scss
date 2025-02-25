@@ -3,6 +3,10 @@
 // Define custom tokens if not available in index.scss
 $custom-padding-inline-start: 60%;
 
+.scheduleListPresenter {
+  margin: lds.$lds-space--2-x;
+}
+
 .scheduleTable {
   width: 100%;
   border-collapse: collapse;

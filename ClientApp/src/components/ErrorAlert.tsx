@@ -13,9 +13,13 @@ const ErrorAlert: React.FC<ErrorAlertProps> = ({ error }) => {
 
   if (!error) return null;
 
+  const errorMessage = `${t(error.message)} ${
+    error.status ? `(${error.status})` : ""
+  }`;
+
   return (
     <LDSAlert variant="danger" dismissible>
-      {t(error.message) + " " + (error.status && `(${error.status})`)}
+      {errorMessage}
     </LDSAlert>
   );
 };

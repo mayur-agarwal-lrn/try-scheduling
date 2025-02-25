@@ -7,7 +7,7 @@ import { queryClient } from "./api/reactQueryClient";
 import { loadCSS, ThemeProvider, Theme } from "@learnosity/lds";
 
 import ScheduleList from "./pages/ScheduleListContainer";
-import LanguageSelector from "./components/LanguageSelector";
+import Header from "./components/Header";
 
 loadCSS();
 
@@ -17,10 +17,7 @@ const App: React.FC = () => {
     <ThemeProvider initialTheme={Theme.dark}>
       <QueryClientProvider client={queryClient}>
         <div className={styles.App}>
-          <header className={styles.AppHeader}>
-            <h1>{t("title")}</h1>
-            <LanguageSelector />
-          </header>
+          <Header title={t("title")} />
           <main className={styles.Main}>
             <ScheduleList />
           </main>

@@ -21,6 +21,7 @@ import styles from "./ScheduleListPresenter.module.scss";
 import ErrorAlert from "../components/ErrorAlert";
 import WarningAlert from "../components/WarningAlert";
 import { formatDateTime } from "../utils/dateUtils";
+import { Alert as LDSAlert } from "@learnosity/lds";
 
 import {
   Button as LDSButton,
@@ -35,12 +36,12 @@ interface ScheduleListPresenterProps {
   onDelete: (id: number) => void;
   onToggleActive: (id: number, active: boolean) => void;
   newSchedule: Omit<Schedule, "id">;
-  onInputChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
   onCreate: () => void;
   actionError: AxiosError | null;
   processingId: number | null;
   tokenExpirationSeconds: number;
   currentLanguage: string;
+  setNewSchedule: React.Dispatch<React.SetStateAction<Omit<Schedule, "id">>>;
 }
 
 const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
@@ -50,24 +51,37 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
   onDelete,
   onToggleActive,
   newSchedule,
-  onInputChange,
   onCreate,
   processingId,
   actionError,
   tokenExpirationSeconds,
   currentLanguage,
+  setNewSchedule,
 }) => {
   const { t } = useTranslation("scheduleList");
 
-  if (scheduleLoading) return <p>{t("loading")}</p>;
-  if (schedulesGetError) return <ErrorAlert error={schedulesGetError} />;
-  if (!schedules || schedules.length === 0) return <p>{t("noData")}</p>;
+  const onInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    setNewSchedule((prev) => ({ ...prev, [name]: value }));
+  };
+
+  if (scheduleLoading)
+    return <div className={styles.scheduleListPresenter}>{t("loading")}</div>;
+  if (schedulesGetError)
+    return (
+      <div className={styles.scheduleListPresenter}>
+        <ErrorAlert error={schedulesGetError} />
+      </div>
+    );
 
   return (
-    <div>
+    <div className={styles.scheduleListPresenter}>
       <ErrorAlert error={actionError} />
       <WarningAlert initialSeconds={tokenExpirationSeconds} />
       <h1>{t("scheduleListHeading")}</h1>
+      {(!schedules || schedules.length === 0) && (
+        <LDSAlert variant="warning">{t("noData")}</LDSAlert>
+      )}
       <table className={styles.scheduleTable}>
         <thead>
           <tr>
@@ -126,58 +140,59 @@ const ScheduleListPresenter: React.FC<ScheduleListPresenterProps> = ({
                   role="status"
                   variant="info"
                   size="sm"
-                >
-                  t("processing")
-                </LDSSpinner>
+                ></LDSSpinner>
               )}
             </td>
           </tr>
-          {schedules.map((schedule) => (
-            <tr
-              key={schedule.id}
-              className={schedule.id % 2 === 0 ? styles.evenRow : styles.oddRow}
-            >
-              <td data-label={t("examName")}>{schedule.examName}</td>
-              <td data-label={t("date")}>
-                {formatDateTime(schedule.date, currentLanguage)}
-              </td>
-              <td data-label={t("location")}>{schedule.location}</td>
-              <td data-label={t("actions")}>
-                <LDSButton
-                  type="button"
-                  onClick={() => onToggleActive(schedule.id, !schedule.active)}
-                  variant={schedule.active ? "outline-danger" : "success"}
-                  size="sm"
-                  tabIndex={1}
-                  disabled={processingId === schedule.id}
-                  className={styles.buttonSpacing}
-                >
-                  {schedule.active ? t("disable") : t("enable")}
-                </LDSButton>
-                <LDSButton
-                  type="button"
-                  onClick={() => onDelete(schedule.id)}
-                  variant="danger"
-                  size="sm"
-                  tabIndex={2}
-                  disabled={processingId === schedule.id}
-                  className={styles.buttonSpacing}
-                >
-                  {t("delete")}
-                </LDSButton>
-                {processingId === schedule.id && (
-                  <LDSSpinner
-                    animation="border"
-                    role="status"
-                    variant="info"
+          {schedules &&
+            schedules.map((schedule) => (
+              <tr
+                key={schedule.id}
+                className={
+                  schedule.id % 2 === 0 ? styles.evenRow : styles.oddRow
+                }
+              >
+                <td data-label={t("examName")}>{schedule.examName}</td>
+                <td data-label={t("date")}>
+                  {formatDateTime(schedule.date, currentLanguage)}
+                </td>
+                <td data-label={t("location")}>{schedule.location}</td>
+                <td data-label={t("actions")}>
+                  <LDSButton
+                    type="button"
+                    onClick={() =>
+                      onToggleActive(schedule.id, !schedule.active)
+                    }
+                    variant={schedule.active ? "outline-danger" : "success"}
                     size="sm"
+                    tabIndex={1}
+                    disabled={processingId === schedule.id}
+                    className={styles.buttonSpacing}
                   >
-                    t("processing")
-                  </LDSSpinner>
-                )}
-              </td>
-            </tr>
-          ))}
+                    {schedule.active ? t("disable") : t("enable")}
+                  </LDSButton>
+                  <LDSButton
+                    type="button"
+                    onClick={() => onDelete(schedule.id)}
+                    variant="danger"
+                    size="sm"
+                    tabIndex={2}
+                    disabled={processingId === schedule.id}
+                    className={styles.buttonSpacing}
+                  >
+                    {t("delete")}
+                  </LDSButton>
+                  {processingId === schedule.id && (
+                    <LDSSpinner
+                      animation="border"
+                      role="status"
+                      variant="info"
+                      size="sm"
+                    ></LDSSpinner>
+                  )}
+                </td>
+              </tr>
+            ))}
         </tbody>
       </table>
     </div>
