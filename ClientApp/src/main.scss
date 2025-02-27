@@ -1,3 +1,10 @@
+:root,
+:is(#lds, body) {
+  // Importing main styles from the Learnosity Design System (LDS)
+  @import "@learnosity/lds-qm-styles/scss/main";
+  // :root and :is(#lds, body) ensure the styles are applied globally and to specific elements
+}
+
 [data-lds-theme="dark"] .lds-form-control,
 [data-lds-theme="dark"] .lds-form-select {
   color: #fff !important; // Fix LDS dark theme issue

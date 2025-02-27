@@ -1,7 +1,7 @@
 import type { Preview } from "@storybook/react";
 import i18n from "../src/i18n"; // Ensure this file exists
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-import { loadCSS, ThemeProvider, Theme } from "@learnosity/lds";
+import { loadCSS, ThemeProvider } from "@learnosity/lds";
 import { createElement } from "react";
 
 // Load CSS from LDS
@@ -39,7 +39,7 @@ export const globalTypes = {
 const withThemeProvider = (Story, context) => {
   return createElement(
     ThemeProvider,
-    { initialTheme: Theme.light, children: createElement(Story, context) },
+    { initialTheme: "qm-light", children: createElement(Story, context) },
     createElement(Story, context)
   );
 };
