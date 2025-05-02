@@ -1,0 +1,571 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pages/Schedule List Default smoke-test 1`] = `
+<div data-lds-theme="qm-light"
+     class="lds-root"
+>
+  <div class="qm_scheduling_scheduleListPresenter">
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-warning lds-alert-dismissible show"
+    >
+      <button type="button"
+              class="btn-close"
+              aria-label="Close alert"
+      >
+      </button>
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20d='M18.09%2024.583V21.6c0-.147-.05-.27-.15-.37a.483.483%200%2000-.353-.15h-3.014a.483.483%200%2000-.353.15c-.1.1-.15.223-.15.37v2.982c0%20.146.05.27.15.37.1.099.217.149.353.149h3.014c.136%200%20.254-.05.353-.15.1-.1.15-.223.15-.37zm-.032-5.87l.282-7.205a.345.345%200%2000-.157-.298c-.136-.115-.262-.172-.377-.172h-3.454c-.114%200-.24.057-.377.172-.105.073-.157.183-.157.33l.267%207.173c0%20.105.053.191.157.26.105.067.231.101.377.101h2.905a.64.64%200%2000.369-.102.35.35%200%2000.165-.259zm-.22-14.662l12.055%2022.1c.366.66.356%201.32-.032%201.979a1.973%201.973%200%2001-.73.721%201.97%201.97%200%2001-.996.268H4.025c-.356%200-.688-.09-.997-.268a1.973%201.973%200%2001-.73-.721c-.387-.66-.397-1.319-.031-1.978l12.055-22.1A2.005%202.005%200%200116.08%203a2.006%202.006%200%20011.758%201.051z'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        Your session will expire in 60 seconds
+      </div>
+    </div>
+    <h1>
+      Schedule List
+    </h1>
+    <table class="qm_scheduling_scheduleTable">
+      <thead>
+        <tr>
+          <th>
+            Exam Name
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Location
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="qm_scheduling_newScheduleRow">
+          <td data-label="Exam Name">
+            <input name="examName"
+                   placeholder="Exam Name"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Date">
+            <input name="date"
+                   required
+                   type="datetime-local"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Location">
+            <input name="location"
+                   placeholder="Location"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="0"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-primary lds-btn-sm"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_oddRow">
+          <td data-label="Exam Name">
+            Math Exam
+          </td>
+          <td data-label="Date">
+            10/1/2023, 10:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 101
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-outline-danger lds-btn-sm"
+            >
+              Disable
+            </button>
+            <button type="button"
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_evenRow">
+          <td data-label="Exam Name">
+            Science Exam
+          </td>
+          <td data-label="Date">
+            10/2/2023, 11:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 102
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-success lds-btn-sm"
+            >
+              Enable
+            </button>
+            <button type="button"
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Pages/Schedule List NoData smoke-test 1`] = `
+<div data-lds-theme="qm-light"
+     class="lds-root"
+>
+  <div class="qm_scheduling_scheduleListPresenter">
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-warning lds-alert-dismissible show"
+    >
+      <button type="button"
+              class="btn-close"
+              aria-label="Close alert"
+      >
+      </button>
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20d='M18.09%2024.583V21.6c0-.147-.05-.27-.15-.37a.483.483%200%2000-.353-.15h-3.014a.483.483%200%2000-.353.15c-.1.1-.15.223-.15.37v2.982c0%20.146.05.27.15.37.1.099.217.149.353.149h3.014c.136%200%20.254-.05.353-.15.1-.1.15-.223.15-.37zm-.032-5.87l.282-7.205a.345.345%200%2000-.157-.298c-.136-.115-.262-.172-.377-.172h-3.454c-.114%200-.24.057-.377.172-.105.073-.157.183-.157.33l.267%207.173c0%20.105.053.191.157.26.105.067.231.101.377.101h2.905a.64.64%200%2000.369-.102.35.35%200%2000.165-.259zm-.22-14.662l12.055%2022.1c.366.66.356%201.32-.032%201.979a1.973%201.973%200%2001-.73.721%201.97%201.97%200%2001-.996.268H4.025c-.356%200-.688-.09-.997-.268a1.973%201.973%200%2001-.73-.721c-.387-.66-.397-1.319-.031-1.978l12.055-22.1A2.005%202.005%200%200116.08%203a2.006%202.006%200%20011.758%201.051z'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        Your session will expire in 60 seconds
+      </div>
+    </div>
+    <h1>
+      Schedule List
+    </h1>
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-warning show"
+    >
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20d='M18.09%2024.583V21.6c0-.147-.05-.27-.15-.37a.483.483%200%2000-.353-.15h-3.014a.483.483%200%2000-.353.15c-.1.1-.15.223-.15.37v2.982c0%20.146.05.27.15.37.1.099.217.149.353.149h3.014c.136%200%20.254-.05.353-.15.1-.1.15-.223.15-.37zm-.032-5.87l.282-7.205a.345.345%200%2000-.157-.298c-.136-.115-.262-.172-.377-.172h-3.454c-.114%200-.24.057-.377.172-.105.073-.157.183-.157.33l.267%207.173c0%20.105.053.191.157.26.105.067.231.101.377.101h2.905a.64.64%200%2000.369-.102.35.35%200%2000.165-.259zm-.22-14.662l12.055%2022.1c.366.66.356%201.32-.032%201.979a1.973%201.973%200%2001-.73.721%201.97%201.97%200%2001-.996.268H4.025c-.356%200-.688-.09-.997-.268a1.973%201.973%200%2001-.73-.721c-.387-.66-.397-1.319-.031-1.978l12.055-22.1A2.005%202.005%200%200116.08%203a2.006%202.006%200%20011.758%201.051z'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        No schedule available.
+      </div>
+    </div>
+    <table class="qm_scheduling_scheduleTable">
+      <thead>
+        <tr>
+          <th>
+            Exam Name
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Location
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="qm_scheduling_newScheduleRow">
+          <td data-label="Exam Name">
+            <input name="examName"
+                   placeholder="Exam Name"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Date">
+            <input name="date"
+                   required
+                   type="datetime-local"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Location">
+            <input name="location"
+                   placeholder="Location"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="0"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-primary lds-btn-sm"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Pages/Schedule List Processing smoke-test 1`] = `
+<div data-lds-theme="qm-light"
+     class="lds-root"
+>
+  <div class="qm_scheduling_scheduleListPresenter">
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-warning lds-alert-dismissible show"
+    >
+      <button type="button"
+              class="btn-close"
+              aria-label="Close alert"
+      >
+      </button>
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20d='M18.09%2024.583V21.6c0-.147-.05-.27-.15-.37a.483.483%200%2000-.353-.15h-3.014a.483.483%200%2000-.353.15c-.1.1-.15.223-.15.37v2.982c0%20.146.05.27.15.37.1.099.217.149.353.149h3.014c.136%200%20.254-.05.353-.15.1-.1.15-.223.15-.37zm-.032-5.87l.282-7.205a.345.345%200%2000-.157-.298c-.136-.115-.262-.172-.377-.172h-3.454c-.114%200-.24.057-.377.172-.105.073-.157.183-.157.33l.267%207.173c0%20.105.053.191.157.26.105.067.231.101.377.101h2.905a.64.64%200%2000.369-.102.35.35%200%2000.165-.259zm-.22-14.662l12.055%2022.1c.366.66.356%201.32-.032%201.979a1.973%201.973%200%2001-.73.721%201.97%201.97%200%2001-.996.268H4.025c-.356%200-.688-.09-.997-.268a1.973%201.973%200%2001-.73-.721c-.387-.66-.397-1.319-.031-1.978l12.055-22.1A2.005%202.005%200%200116.08%203a2.006%202.006%200%20011.758%201.051z'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        Your session will expire in 60 seconds
+      </div>
+    </div>
+    <h1>
+      Schedule List
+    </h1>
+    <table class="qm_scheduling_scheduleTable">
+      <thead>
+        <tr>
+          <th>
+            Exam Name
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Location
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="qm_scheduling_newScheduleRow">
+          <td data-label="Exam Name">
+            <input name="examName"
+                   placeholder="Exam Name"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Date">
+            <input name="date"
+                   required
+                   type="datetime-local"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Location">
+            <input name="location"
+                   placeholder="Location"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="0"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-primary lds-btn-sm"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_oddRow">
+          <td data-label="Exam Name">
+            Math Exam
+          </td>
+          <td data-label="Date">
+            10/1/2023, 10:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 101
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    disabled
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-outline-danger lds-btn-sm"
+            >
+              Disable
+            </button>
+            <button type="button"
+                    disabled
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+            <div role="status"
+                 class="lds-text-info lds-spinner-border lds-spinner-border-sm"
+            >
+            </div>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_evenRow">
+          <td data-label="Exam Name">
+            Science Exam
+          </td>
+          <td data-label="Date">
+            10/2/2023, 11:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 102
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-success lds-btn-sm"
+            >
+              Enable
+            </button>
+            <button type="button"
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
+
+exports[`Pages/Schedule List SchedulesGetError smoke-test 1`] = `
+<div data-lds-theme="qm-light"
+     class="lds-root"
+>
+  <div class="qm_scheduling_scheduleListPresenter">
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-danger lds-alert-dismissible show"
+    >
+      <button type="button"
+              class="btn-close"
+              aria-label="Close alert"
+      >
+      </button>
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20fill-rule='evenodd'%20d='M2%2016C2%208.268%208.268%202%2016%202s14%206.268%2014%2014-6.268%2014-14%2014S2%2023.732%202%2016zm16.272%203.563v2.982c0%20.147-.05.27-.15.37-.1.1-.217.149-.353.149h-3.014a.483.483%200%2001-.353-.15.502.502%200%2001-.15-.369v-2.982c0-.147.05-.27.15-.37.1-.099.217-.149.353-.149h3.014c.136%200%20.254.05.354.15.1.1.149.222.149.369zm.25-10.093l-.282%207.204a.35.35%200%2001-.165.26.64.64%200%2001-.37.103h-2.903a.678.678%200%2001-.377-.102c-.105-.068-.158-.155-.158-.26L14%209.502c0-.147.052-.256.157-.33.137-.115.263-.172.377-.172h3.454c.116%200%20.241.057.377.172a.345.345%200%2001.157.298z'%20clip-rule='evenodd'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        Failed to load schedules
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Pages/Schedule List TokenExpired smoke-test 1`] = `
+<div data-lds-theme="qm-light"
+     class="lds-root"
+>
+  <div class="qm_scheduling_scheduleListPresenter">
+    <div role="alert"
+         class="lds-fade lds-alert lds-alert-danger lds-alert-dismissible show"
+    >
+      <button type="button"
+              class="btn-close"
+              aria-label="Close alert"
+      >
+      </button>
+      <div class="lds-alert-icon">
+        <svg class="lds-icon lds-icon--medium"
+             aria-hidden="true"
+             focusable="false"
+        >
+          <use class="lds-icon-i"
+               xlink:href="#data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='32'%20height='32'%20fill='currentColor'%20viewBox='0%200%2032%2032'%3e%3cpath%20fill-rule='evenodd'%20d='M2%2016C2%208.268%208.268%202%2016%202s14%206.268%2014%2014-6.268%2014-14%2014S2%2023.732%202%2016zm16.272%203.563v2.982c0%20.147-.05.27-.15.37-.1.1-.217.149-.353.149h-3.014a.483.483%200%2001-.353-.15.502.502%200%2001-.15-.369v-2.982c0-.147.05-.27.15-.37.1-.099.217-.149.353-.149h3.014c.136%200%20.254.05.354.15.1.1.149.222.149.369zm.25-10.093l-.282%207.204a.35.35%200%2001-.165.26.64.64%200%2001-.37.103h-2.903a.678.678%200%2001-.377-.102c-.105-.068-.158-.155-.158-.26L14%209.502c0-.147.052-.256.157-.33.137-.115.263-.172.377-.172h3.454c.116%200%20.241.057.377.172a.345.345%200%2001.157.298z'%20clip-rule='evenodd'/%3e%3c/svg%3e"
+          >
+          </use>
+        </svg>
+      </div>
+      <div class="lds-alert-content">
+        Token Expired. Please perform a CRUD operation to renew the token.
+      </div>
+    </div>
+    <h1>
+      Schedule List
+    </h1>
+    <table class="qm_scheduling_scheduleTable">
+      <thead>
+        <tr>
+          <th>
+            Exam Name
+          </th>
+          <th>
+            Date
+          </th>
+          <th>
+            Location
+          </th>
+          <th>
+            Actions
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="qm_scheduling_newScheduleRow">
+          <td data-label="Exam Name">
+            <input name="examName"
+                   placeholder="Exam Name"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Date">
+            <input name="date"
+                   required
+                   type="datetime-local"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Location">
+            <input name="location"
+                   placeholder="Location"
+                   required
+                   type="text"
+                   class="lds-form-control"
+                   value
+            >
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="0"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-primary lds-btn-sm"
+            >
+              Add
+            </button>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_oddRow">
+          <td data-label="Exam Name">
+            Math Exam
+          </td>
+          <td data-label="Date">
+            10/1/2023, 10:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 101
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-outline-danger lds-btn-sm"
+            >
+              Disable
+            </button>
+            <button type="button"
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+        <tr class="qm_scheduling_evenRow">
+          <td data-label="Exam Name">
+            Science Exam
+          </td>
+          <td data-label="Date">
+            10/2/2023, 11:00:00 AM
+          </td>
+          <td data-label="Location">
+            Room 102
+          </td>
+          <td data-label="Actions">
+            <button type="button"
+                    tabindex="1"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-success lds-btn-sm"
+            >
+              Enable
+            </button>
+            <button type="button"
+                    tabindex="2"
+                    class="qm_scheduling_buttonSpacing lds-btn lds-btn-danger lds-btn-sm"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+`;
