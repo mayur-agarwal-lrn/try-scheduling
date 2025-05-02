@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "test-storybook:update-snapshots": "test-storybook -- -u"
   },
   "dependencies": {
     "@learnosity/lds": "^0.28.6",
@@ -49,6 +50,9 @@
     "eslint-plugin-storybook": "^0.11.3",
     "globals": "^15.14.0",
     "jest": "^29.7.0",
+    "pixelmatch": "^7.1.0",
+    "playwright": "^1.52.0",
+    "pngjs": "^7.0.0",
     "storybook": "^8.5.8",
     "typescript": "~5.6.2",
     "typescript-eslint": "^8.18.2",

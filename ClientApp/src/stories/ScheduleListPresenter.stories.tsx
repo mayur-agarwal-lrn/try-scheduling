@@ -72,6 +72,9 @@ export const Processing: Story = {
     ...Default.args,
     processingId: 1, // Simulate processing state for the first schedule
   },
+  parameters: {
+    visualRegression: { skip: true }, // Custom flag
+  },
 };
 
 // Story simulating token expiration
