@@ -1,11 +1,8 @@
 import type { Preview } from "@storybook/react";
 import i18n from "../src/i18n"; // Ensure this file exists
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
-import { loadCSS, ThemeProvider } from "@learnosity/lds";
+import { ThemeProvider } from "@learnosity/lds";
 import { createElement } from "react";
-
-// Load CSS from LDS
-loadCSS();
 
 export const globalTypes = {
   locale: {
@@ -38,9 +35,13 @@ export const globalTypes = {
 // Decorator to wrap stories with ThemeProvider
 const withThemeProvider = (Story, context) => {
   return createElement(
-    ThemeProvider,
-    { initialTheme: "qm-light", children: createElement(Story, context) },
-    createElement(Story, context)
+    "div",
+    { style: { padding: "2rem", backgroundColor: "#f5f5f5" } },
+    createElement(
+      ThemeProvider,
+      { initialTheme: "qm-light", children: createElement(Story, context) },
+      createElement(Story, context)
+    )
   );
 };
 
@@ -54,6 +55,8 @@ export const decorators = [
     // Change text direction (RTL/LTR)
     document.documentElement.dir = direction;
 
+    // Return a wrapped story function with padding and background
+    // This ensures Loki tests doesn't flake due to browser inconsistencies (like margin bleed, white-on-white, etc.).
     return withThemeProvider(Story, context);
   },
 ];

@@ -9,9 +9,6 @@ import { ThemeProvider } from "@learnosity/lds";
 import ScheduleList from "./pages/ScheduleListContainer";
 import Header from "./components/Header";
 
-//loadCSS();
-//configureCSSOptions({ enabled: false, env: "production" });
-
 const App: React.FC = () => {
   const { t } = useTranslation();
   return (

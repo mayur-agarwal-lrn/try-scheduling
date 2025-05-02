@@ -72,6 +72,9 @@ export const Processing: Story = {
     ...Default.args,
     processingId: 1, // Simulate processing state for the first schedule
   },
+  parameters: {
+    loki: { skip: true }, // This story cannot be tested in UI regression since it has a processing state
+  },
 };
 
 // Story simulating token expiration
